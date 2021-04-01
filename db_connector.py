@@ -3,7 +3,7 @@ from sqlalchemy import *
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-engine = create_engine('mysql+mysqlconnector://root:123456@localhost:3306/cvrp?charset=utf8mb4')
+engine = create_engine('mysql+mysqlconnector://root:password@localhost:3306/cvrp')
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))

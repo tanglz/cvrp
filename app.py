@@ -23,7 +23,7 @@ celery.conf.update(app.config)
 
 @app.context_processor
 def host():
-    return dict(host="http://127.0.0.1:5000/")
+    return dict(host="http://localhost:5000/")
 
 
 @app.route('/', methods=['GET'])
@@ -100,4 +100,4 @@ def add_task_performance_test():
 
 if __name__ == '__main__':
     init_db()
-    app.run()
+    app.run(host="0.0.0.0")
