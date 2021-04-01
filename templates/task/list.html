@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}task list{% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered table-hover">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">Task Id</th>
+      <th scope="col">Dataset</th>
+      <th scope="col">MAX_NFC</th>
+      <th scope="col">Ants</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.name }}</td>
+      <td class="task_id" value="{{ task.task_id }}">{{ task.task_id }}</td>
+      <td>{{ task.dataset }}</td>
+      <td>{{ task.max_nfc }}</td>
+      <td>{{ task.ants }}</td>
+      <td><a href="{{ host }}/result/display/{{ task.name }}">show result</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

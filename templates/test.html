@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}task list{% endblock %}
+
+{% block content %}
+<h3>Create Task</h3>
+<form action="{{ url_for('add_task_performance_test') }}" method="post">
+  <div class="input-group mb-3">
+    <span class="input-group-text">The number of tasks</span>
+    <input name="tasks_number" value="500" type="text" class="form-control" placeholder="tasks_number" aria-label="tasks_number" aria-describedby="tasks_number">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">name</span>
+    <input name="name" value="performance_test_001" type="text" class="form-control" placeholder="performance_test_001" aria-label="name" aria-describedby="name">
+  </div>
+  <div class="mb-3">
+    <select name="dataset" class="form-select" aria-label="select a dataset">
+      <option selected>E-n22-k4.txt</option>
+    </select>
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">generation</span>
+    <input name="max_nfc" value="100" type="number" class="form-control" placeholder="generation" aria-label="generation" aria-describedby="generation">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">ants</span>
+    <input name="ants" type="number" value="25" class="form-control" placeholder="ants" aria-label="ants" aria-describedby="ants">
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

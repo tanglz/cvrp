@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}display result{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+    .new-form{max-width:400px;}
+  </style>
+{% endblock %}
+{% block content %}
+<div class="row align-items-start">
+{% for pr in page_result %}
+  <div class="col">
+    <div class="card" style="width: 28rem;">
+    <div class="card-body">
+      <p class="card-text"><span>Dataset:</span>{{ pr.ds }}</p>
+      <p class="card-text"><span>Task Id:</span>{{ pr.task_id }}</p>
+      <p class="card-text"><span>Distance:</span>{{ pr.result.distance }}</p>
+      <p class="card-text"><span>Time:</span>{{ pr.result.cost }}</p>
+      <p class="card-text"><span>Routes:</span>{{ pr.result.routes }}</p>
+    </div>
+    <img src="{{ url_for('static', filename=pr.url) }}" class="card-img-top" alt="routes">
+  </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

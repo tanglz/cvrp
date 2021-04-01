@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}add task{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+    .new-form{max-width:400px;}
+  </style>
+{% endblock %}
+{% block content %}
+<h3>Create Task</h3>
+<form action="{{ url_for('add_task') }}" method="post">
+   <div class="input-group mb-3">
+    <span class="input-group-text">name</span>
+    <input name="name" value="" type="text" class="form-control" placeholder="name" aria-label="name" aria-describedby="name">
+  </div>
+  <div class="mb-3">
+    <select name="dataset" class="form-select" aria-label="select a dataset">
+      <option selected>Dataset</option>
+      <option value="E-n22-k4.txt">E-n22-k4.txt</option>
+      <option value="E-n33-k4.txt">E-n33-k4.txt</option>
+      <option value="E-n101-k14.txt">E-n101-k14.txt</option>
+    </select>
+  </div>
+<!--  <div class="mb-3">-->
+<!--    <select name="strategy" class="form-select" aria-label="select a strategy">-->
+<!--      <option selected>Strategy</option>-->
+<!--      <option value="regular">regular</option>-->
+<!--      <option value="multiprocessor">multiprocessor</option>-->
+<!--    </select>-->
+<!--  </div>-->
+  <div class="input-group mb-3">
+    <span class="input-group-text">generation</span>
+    <input name="max_nfc" value="10" type="number" class="form-control" placeholder="generation" aria-label="generation" aria-describedby="generation">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">ants</span>
+    <input name="ants" type="number" value="10" class="form-control" placeholder="ants" aria-label="ants" aria-describedby="ants">
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+
+{% endblock %}
