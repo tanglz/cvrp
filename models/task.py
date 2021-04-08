@@ -43,13 +43,16 @@ class Task(Base):
         task = self.query_by_id(id)
         task.result = result
         db_session.commit()
+        db_session.remove()
 
     def update_by_task_id(self, result, status, task_id):
         task = self.query_by_task_id(task_id)
         task.result = result
         task.status = status
         db_session.commit()
+        db_session.remove()
 
     def insert(self):
         db_session.add(self)
         db_session.commit()
+        db_session.remove()

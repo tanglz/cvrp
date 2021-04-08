@@ -86,14 +86,13 @@ class AcoVrp:
         self.init_pheromone()
         NFC = 0
         p = multiprocessing.Pool(5)
-        while (NFC < self.MAX_NFC):
+        while NFC < self.MAX_NFC:
             sols = list()
             # start multi-processor
             sols = p.apply(self.group_ant_move, args=[vertices, edges, sols])
             # end
             self.update_bestSolution(sols)
             self.update_pheromone(sols)
-            # print("generation:", NFC, " best:", int(self.bestSolution[1]), " path:", str(self.bestSolution[0]))
             NFC += 1
         p.close()
         p.join()
