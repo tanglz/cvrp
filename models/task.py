@@ -30,16 +30,24 @@ class Task(Base):
         return result
 
     def query_by_id(self, id):
-        return self.query.filter_by(id=id).first()
+        result = self.query.filter_by(id=id).first()
+        db_session.remove()
+        return result
 
     def query_by_task_id(self, task_id):
-        return self.query.filter_by(task_id=task_id).first()
+        result = self.query.filter_by(task_id=task_id).first()
+        db_session.remove()
+        return result
 
     def query_by_status(self, status):
-        return self.query.filter_by(status=status).all()
+        result = self.query.filter_by(status=status).all()
+        db_session.remove()
+        return result
 
     def query_by_name(self, name):
-        return self.query.filter_by(name=name).all()
+        result = self.query.filter_by(name=name).all()
+        db_session.remove()
+        return result
 
     def update_result_by_id(self, result, id):
         task = self.query_by_id(id)
