@@ -25,7 +25,9 @@ class Task(Base):
         self.name = name
 
     def query_all(self):
-        return self.query.all()
+        result = self.query.all()
+        db_session.remove()
+        return result
 
     def query_by_id(self, id):
         return self.query.filter_by(id=id).first()
